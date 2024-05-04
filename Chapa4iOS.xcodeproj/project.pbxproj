@@ -9,12 +9,24 @@
 /* Begin PBXBuildFile section */
 		8E0B3C092BE5E740005F3EE0 /* Chapa4iOS.docc in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C082BE5E740005F3EE0 /* Chapa4iOS.docc */; };
 		8E0B3C0A2BE5E740005F3EE0 /* Chapa4iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E0B3C072BE5E740005F3EE0 /* Chapa4iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E0B3C162BE5E7B1005F3EE0 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C152BE5E7B1005F3EE0 /* Customer.swift */; };
+		8E0B3C182BE5E9F9005F3EE0 /* VerifiedTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C172BE5E9F9005F3EE0 /* VerifiedTransaction.swift */; };
+		8E0B3C1A2BE5EA6F005F3EE0 /* SuccessfulCheckout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C192BE5EA6F005F3EE0 /* SuccessfulCheckout.swift */; };
+		8E0B3C1C2BE5EAED005F3EE0 /* ChapaNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C1B2BE5EAED005F3EE0 /* ChapaNetworkError.swift */; };
+		8E0B3C1E2BE5EB44005F3EE0 /* ChapaConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C1D2BE5EB44005F3EE0 /* ChapaConstants.swift */; };
+		8E0B3C202BE5EC49005F3EE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0B3C1F2BE5EC49005F3EE0 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8E0B3C042BE5E740005F3EE0 /* Chapa4iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Chapa4iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E0B3C072BE5E740005F3EE0 /* Chapa4iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapa4iOS.h; sourceTree = "<group>"; };
 		8E0B3C082BE5E740005F3EE0 /* Chapa4iOS.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Chapa4iOS.docc; sourceTree = "<group>"; };
+		8E0B3C152BE5E7B1005F3EE0 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		8E0B3C172BE5E9F9005F3EE0 /* VerifiedTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedTransaction.swift; sourceTree = "<group>"; };
+		8E0B3C192BE5EA6F005F3EE0 /* SuccessfulCheckout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulCheckout.swift; sourceTree = "<group>"; };
+		8E0B3C1B2BE5EAED005F3EE0 /* ChapaNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapaNetworkError.swift; sourceTree = "<group>"; };
+		8E0B3C1D2BE5EB44005F3EE0 /* ChapaConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapaConstants.swift; sourceTree = "<group>"; };
+		8E0B3C1F2BE5EC49005F3EE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,10 +59,56 @@
 		8E0B3C062BE5E740005F3EE0 /* Chapa4iOS */ = {
 			isa = PBXGroup;
 			children = (
+				8E0B3C142BE5E77E005F3EE0 /* Extra */,
+				8E0B3C132BE5E771005F3EE0 /* Util */,
+				8E0B3C122BE5E769005F3EE0 /* View */,
+				8E0B3C112BE5E763005F3EE0 /* Model */,
+				8E0B3C102BE5E755005F3EE0 /* Networking */,
 				8E0B3C072BE5E740005F3EE0 /* Chapa4iOS.h */,
 				8E0B3C082BE5E740005F3EE0 /* Chapa4iOS.docc */,
 			);
 			path = Chapa4iOS;
+			sourceTree = "<group>";
+		};
+		8E0B3C102BE5E755005F3EE0 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B3C1B2BE5EAED005F3EE0 /* ChapaNetworkError.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		8E0B3C112BE5E763005F3EE0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B3C152BE5E7B1005F3EE0 /* Customer.swift */,
+				8E0B3C172BE5E9F9005F3EE0 /* VerifiedTransaction.swift */,
+				8E0B3C192BE5EA6F005F3EE0 /* SuccessfulCheckout.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8E0B3C122BE5E769005F3EE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8E0B3C132BE5E771005F3EE0 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B3C1F2BE5EC49005F3EE0 /* Extensions.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		8E0B3C142BE5E77E005F3EE0 /* Extra */ = {
+			isa = PBXGroup;
+			children = (
+				8E0B3C1D2BE5EB44005F3EE0 /* ChapaConstants.swift */,
+			);
+			path = Extra;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +190,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0B3C1A2BE5EA6F005F3EE0 /* SuccessfulCheckout.swift in Sources */,
 				8E0B3C092BE5E740005F3EE0 /* Chapa4iOS.docc in Sources */,
+				8E0B3C1C2BE5EAED005F3EE0 /* ChapaNetworkError.swift in Sources */,
+				8E0B3C182BE5E9F9005F3EE0 /* VerifiedTransaction.swift in Sources */,
+				8E0B3C162BE5E7B1005F3EE0 /* Customer.swift in Sources */,
+				8E0B3C1E2BE5EB44005F3EE0 /* ChapaConstants.swift in Sources */,
+				8E0B3C202BE5EC49005F3EE0 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
