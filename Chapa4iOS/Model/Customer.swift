@@ -9,13 +9,16 @@ import Foundation
 
 // MARK: - Customer
 struct Customer: Codable {
-    let amount: Double
-    let currency: ChapaCurrency
-    let email, firstName: String?
-    let lastName, phoneNumber: String?
-    let txRef: String
-    let callbackURL, returnURL: String?
-    let customization: ChapaCustomization?
+    var amount: Double
+    var currency: ChapaCurrency
+    var email: String? = nil
+    var firstName: String? = nil
+    var lastName: String? = nil
+    var phoneNumber: String? = nil
+    var txRef: String
+    var callbackURL: String? = nil
+    var returnURL: String? = nil
+    var customization: ChapaCustomization? = nil
 
     enum CodingKeys: String, CodingKey {
         case amount, currency, email
@@ -30,8 +33,8 @@ struct Customer: Codable {
 }
 
 struct ChapaCustomization: Codable {
-    let title: String
-    let description: String
+    var title: String
+    var description: String
 
     enum CodingKeys: String, CodingKey {
         case title, description
