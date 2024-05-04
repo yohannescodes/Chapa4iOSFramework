@@ -8,18 +8,18 @@
 import UIKit
 import WebKit
 
-class CheckoutViewController: UIViewController, WKNavigationDelegate {
+public class CheckoutViewController: UIViewController, WKNavigationDelegate {
 
     var webView: WKWebView!
-    var url = ""
+    public var url = ""
     
-    override func loadView() {
+    public override func loadView() {
         webView = WKWebView()
         webView.navigationDelegate = self
         view = webView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         if let url = URL(string: url){
             webView.load(URLRequest(url: url))

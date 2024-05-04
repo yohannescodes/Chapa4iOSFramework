@@ -10,14 +10,13 @@ import UIKit
 
 public class Chapa{
     
-    var publicKey: String
-    var secretKey: String
-    var amount: Double
-    var currency: ChapaCurrency
-    var txnRef: String
-    var checkoutURL: URL!
+    public var publicKey: String
+    public var secretKey: String
+    public var amount: Double
+    public var currency: ChapaCurrency
+    public var txnRef: String
     
-    init(publicKey: String, secretKey: String, amount: Double, currency: ChapaCurrency, txnRef: String) {
+    public init(publicKey: String, secretKey: String, amount: Double, currency: ChapaCurrency, txnRef: String) {
         self.publicKey = publicKey
         self.secretKey = secretKey
         self.amount = amount

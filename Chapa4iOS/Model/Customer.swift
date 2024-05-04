@@ -8,18 +8,18 @@
 import Foundation
 
 // MARK: - Customer
-struct Customer: Codable {
-    var amount: Double
-    var currency: ChapaCurrency
-    var email: String? = nil
-    var firstName: String? = nil
-    var lastName: String? = nil
-    var phoneNumber: String? = nil
-    var txRef: String
-    var callbackURL: String? = nil
-    var returnURL: String? = nil
-    var customization: ChapaCustomization? = nil
-
+public struct Customer: Codable {
+    public var amount: Double
+    public var currency: ChapaCurrency
+    public var email: String? = nil
+    public var firstName: String? = nil
+    public var lastName: String? = nil
+    public var phoneNumber: String? = nil
+    public var txRef: String
+    public var callbackURL: String? = nil
+    public var returnURL: String? = nil
+    public var customization: ChapaCustomization? = nil
+    
     enum CodingKeys: String, CodingKey {
         case amount, currency, email
         case firstName = "first_name"
@@ -32,16 +32,16 @@ struct Customer: Codable {
     }
 }
 
-struct ChapaCustomization: Codable {
-    var title: String
-    var description: String
-
+public struct ChapaCustomization: Codable {
+    public var title: String
+    public var description: String
+    
     enum CodingKeys: String, CodingKey {
         case title, description
     }
 }
 
-enum ChapaCurrency: String, Codable {
+public enum ChapaCurrency: String, Codable {
     case etb = "ETB"
     case usd = "USD"
 }
