@@ -8,10 +8,12 @@
 import UIKit
 import WebKit
 
-public class CheckoutViewController: UIViewController, WKNavigationDelegate {
+public class CheckoutViewController: UIViewController {
 
     var webView: WKWebView!
     public var url = ""
+    public var returnURL: String?
+    public var transactionRefference: String?
     
     public override func loadView() {
         webView = WKWebView()
@@ -33,4 +35,13 @@ public class CheckoutViewController: UIViewController, WKNavigationDelegate {
         }
     }
 
+}
+
+extension CheckoutViewController: WKNavigationDelegate{
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        if webView.url!.absoluteString.range(of: returnURL ?? ChapaConstants.defaultReturnURL) != nil{
+            
+            self.dismiss(animated: true)
+            }
+        }
 }
