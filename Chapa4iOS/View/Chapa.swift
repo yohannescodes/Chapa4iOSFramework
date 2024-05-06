@@ -32,6 +32,8 @@ public class Chapa{
                 DispatchQueue.main.async{
                     let checkoutVC = CheckoutViewController()
                     checkoutVC.url = response.data.checkoutURL
+                    checkoutVC.returnURL = customer.returnURL ?? ChapaConstants.defaultReturnURL
+                    checkoutVC.transactionRefference = customer.txRef
                     controller.modalPresentationStyle = .fullScreen
                     controller.present(checkoutVC, animated: true)
                 }

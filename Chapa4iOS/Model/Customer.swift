@@ -17,7 +17,7 @@ public struct Customer: Codable {
     public var phoneNumber: String?
     public var txRef: String
     public var callbackURL: String?
-    public var returnURL: String?
+    public var returnURL: String? = nil
     public var customization: ChapaCustomization?
     
     enum CodingKeys: String, CodingKey {
@@ -31,7 +31,7 @@ public struct Customer: Codable {
         case customization
     }
     
-    public init(amount: String, currency: ChapaCurrency, email: String?, firstName: String?, lastName: String?, phoneNumber: String?, txRef: String, callbackURL: String?, returnURL: String?, customization: ChapaCustomization?) {
+    public init(amount: String, currency: ChapaCurrency, email: String?, firstName: String?, lastName: String?, phoneNumber: String?, txRef: String, callbackURL: String?, returnURL: String? = nil, customization: ChapaCustomization?) {
         self.amount = amount
         self.currency = currency
         self.email = email
