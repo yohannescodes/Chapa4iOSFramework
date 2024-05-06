@@ -10,24 +10,24 @@ import UIKit
 
 public class Chapa{
     
-    public var publicKey: String
     public var secretKey: String
-    public var amount: Double
-    public var currency: ChapaCurrency
-    public var txnRef: String
+
     
-    public init(publicKey: String, secretKey: String, amount: Double, currency: ChapaCurrency, txnRef: String) {
-        self.publicKey = publicKey
+    public init(secretKey: String) {
         self.secretKey = secretKey
-        self.amount = amount
-        self.currency = currency
-        self.txnRef = txnRef
     }
     
-    public func acceptPayment(controller: UIViewController){
+    
+    public func generateTransactionReference() -> String{
+        return "TX" + String.random()
+    }
+    
+    public func acceptPayment(controller: UIViewController, customer: Customer){
         Task.init {
             do{
-                let response = try await ChapaNetworkManager().acceptPayment(customer: Customer(amount: self.amount, currency: self.currency, txRef: self.txnRef), key: self.secretKey)
+                
+                
+                let response = try await ChapaNetworkManager().acceptPayment(customer: customer, key: self.secretKey)
                 
                 DispatchQueue.main.async{
                     let checkoutVC = CheckoutViewController()
@@ -46,10 +46,10 @@ public class Chapa{
         }
     }
     
-    public func verifyPayment(controller: UIViewController){
+    public func verifyPayment(controller: UIViewController, txRef: String){
         Task.init {
             do{
-                let response = try await ChapaNetworkManager().verifyPayment(transactionRefference: self.txnRef, key: self.secretKey)
+                let response = try await ChapaNetworkManager().verifyPayment(transactionRefference: txRef, key: self.secretKey)
                 DispatchQueue.main.async{
                     let alert = UIAlertController(title: "Congrats 🎉", message: response.message, preferredStyle: .alert)
                     let alertAction = UIAlertAction(title: "Ok", style: .cancel)

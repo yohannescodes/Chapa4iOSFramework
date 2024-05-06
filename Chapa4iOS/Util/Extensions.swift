@@ -8,7 +8,7 @@
 import Foundation
 
 extension String{
-    static func random(length: Int = 20) -> String {
+    static func random(length: Int = 15) -> String {
         let base = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         var randomString: String = ""
         
