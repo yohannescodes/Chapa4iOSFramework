@@ -9,16 +9,16 @@ import Foundation
 
 // MARK: - Customer
 public struct Customer: Codable {
-    public var amount: Double
+    public var amount: String
     public var currency: ChapaCurrency
-    public var email: String? = nil
-    public var firstName: String? = nil
-    public var lastName: String? = nil
-    public var phoneNumber: String? = nil
+    public var email: String?
+    public var firstName: String?
+    public var lastName: String?
+    public var phoneNumber: String?
     public var txRef: String
-    public var callbackURL: String? = nil
-    public var returnURL: String? = nil
-    public var customization: ChapaCustomization? = nil
+    public var callbackURL: String?
+    public var returnURL: String?
+    public var customization: ChapaCustomization?
     
     enum CodingKeys: String, CodingKey {
         case amount, currency, email
@@ -29,6 +29,19 @@ public struct Customer: Codable {
         case callbackURL = "callback_url"
         case returnURL = "return_url"
         case customization
+    }
+    
+    public init(amount: String, currency: ChapaCurrency, email: String?, firstName: String?, lastName: String?, phoneNumber: String?, txRef: String, callbackURL: String?, returnURL: String?, customization: ChapaCustomization?) {
+        self.amount = amount
+        self.currency = currency
+        self.email = email
+        self.firstName = firstName
+        self.lastName = lastName
+        self.phoneNumber = phoneNumber
+        self.txRef = txRef
+        self.callbackURL = callbackURL
+        self.returnURL = returnURL
+        self.customization = customization
     }
 }
 
