@@ -15,14 +15,15 @@ struct VerifiedTransaction: Codable {
 
 // MARK: - DataClass
 struct VerifiedDataClass: Codable {
-    let firstName, lastName, email, currency: String
+    let firstName, lastName, email: String?
+    let currency: String?
     let amount: Int
     let charge: Double
     let mode, method, type, status: String
     let reference, txRef: String
-    let customization: ChapaCustomization
+    let customization: ChapaCustomization?
 
-    let createdAt, updatedAt: String
+    let createdAt, updatedAt: String?
 
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"

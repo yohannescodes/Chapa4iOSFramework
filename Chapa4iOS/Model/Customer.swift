@@ -46,8 +46,8 @@ public struct Customer: Codable {
 }
 
 public struct ChapaCustomization: Codable {
-    public var title: String
-    public var description: String
+    @CodableExplicitNull public var title: String? = nil
+    @CodableExplicitNull public var description: String? = nil
     
     enum CodingKeys: String, CodingKey {
         case title, description
