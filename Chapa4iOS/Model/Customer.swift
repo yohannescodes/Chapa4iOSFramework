@@ -11,14 +11,14 @@ import Foundation
 public struct Customer: Codable {
     public var amount: String
     public var currency: ChapaCurrency
-    public var email: String?
-    public var firstName: String?
-    public var lastName: String?
-    public var phoneNumber: String?
+    @CodableExplicitNull public var email: String? = nil
+    @CodableExplicitNull public var firstName: String? = nil
+    @CodableExplicitNull public var lastName: String? = nil
+    @CodableExplicitNull public var phoneNumber: String? = nil
     public var txRef: String
-    public var callbackURL: String?
-    public var returnURL: String? = nil
-    public var customization: ChapaCustomization?
+    @CodableExplicitNull public var callbackURL: String? = nil
+    @CodableExplicitNull public var returnURL: String? = nil
+    @CodableExplicitNull public var customization: ChapaCustomization? = nil
     
     enum CodingKeys: String, CodingKey {
         case amount, currency, email
