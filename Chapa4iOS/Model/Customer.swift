@@ -52,6 +52,11 @@ public struct ChapaCustomization: Codable {
     enum CodingKeys: String, CodingKey {
         case title, description
     }
+    
+    public init(title: String?, description: String?) {
+        self.title = title
+        self.description = description
+    }
 }
 
 public enum ChapaCurrency: String, Codable {
