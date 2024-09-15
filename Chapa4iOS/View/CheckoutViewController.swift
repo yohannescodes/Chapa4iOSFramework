@@ -8,12 +8,17 @@
 import UIKit
 import WebKit
 
+protocol CheckoutViewControllerDelegate {
+    func verifyPayment(txRef: String)
+}
+
 public class CheckoutViewController: UIViewController {
 
     var webView: WKWebView!
     public var url = ""
     public var returnURL: String?
     public var transactionRefference: String?
+    var delegate: CheckoutViewControllerDelegate?
     
     public override func loadView() {
         webView = WKWebView()
@@ -44,4 +49,16 @@ extension CheckoutViewController: WKNavigationDelegate{
             self.dismiss(animated: true)
             }
         }
+    
+    // See if the checkout URL is changed and verify the transaction.
+    
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if navigationAction.request.url != nil {
+            if let transactionRefference {
+                delegate?.verifyPayment(txRef: transactionRefference)
+            }
+        }
+        decisionHandler(.allow)
+    }
 }
+
