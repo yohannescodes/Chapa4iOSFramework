@@ -42,24 +42,28 @@ public class ChapaNetworkManager{
     
     
     private func sendRequest<T: Decodable>(_ request: URLRequest) async throws -> T {
-        let (data, response) = try await URLSession.shared.data(for: request)
-        
-        guard let _ = response as? HTTPURLResponse else {
-            let error = ChapaNetworkError.noNetwork
-            print(error.localizedDescription)
-            throw error
-        }
+        var data = Data()
         
         do {
             
-            let jsonresult = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSDictionary
-            print(jsonresult)
+            (data, _) = try await URLSession.shared.data(for: request)
+            
+        }catch {
+            
+            print("Network request error: \(error)")
+            throw ChapaNetworkError.networkError(error)
+        }
+        
+        
+        do {
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! NSDictionary
+            print(jsonResult)
             
             let decodedData = try JSONDecoder().decode(T.self, from: data)
             return decodedData
-        } catch (let error) {
-            print("Unknown Error: \(error)")
-            throw ChapaNetworkError.unknownError
+        } catch {
+            print("Decoding error: \(error)")
+            throw ChapaNetworkError.decodingError(error)
         }
     }
 }

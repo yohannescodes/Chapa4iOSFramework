@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-public class Chapa{
+public class Chapa: CheckoutViewControllerDelegate{
     
     public var secretKey: String
 
@@ -31,6 +31,7 @@ public class Chapa{
                 
                 DispatchQueue.main.async{
                     let checkoutVC = CheckoutViewController()
+                    checkoutVC.delegate = self
                     checkoutVC.url = response.data.checkoutURL
                     checkoutVC.returnURL = customer.returnURL ?? ChapaConstants.defaultReturnURL
                     checkoutVC.transactionRefference = customer.txRef
@@ -48,23 +49,16 @@ public class Chapa{
         }
     }
     
-    public func verifyPayment(controller: UIViewController, txRef: String){
+    public func verifyPayment(txRef: String){
         Task.init {
             do{
                 let response = try await ChapaNetworkManager().verifyPayment(transactionRefference: txRef, key: self.secretKey)
-                DispatchQueue.main.async{
-                    let alert = UIAlertController(title: "Congrats 🎉", message: response.message, preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "Ok", style: .cancel)
-                    alert.addAction(alertAction)
-                    controller.present(alert, animated: true)
-                }
-            }catch(let error){
-                DispatchQueue.main.async{
-                    let alert = UIAlertController(title: "Whoops 😬", message: error.localizedDescription, preferredStyle: .alert)
-                    let alertAction = UIAlertAction(title: "Ok", style: .cancel)
-                    alert.addAction(alertAction)
-                    controller.present(alert, animated: true)
-                }
+                print("Transaction verification status: \(response.status)")
+            }catch let error as ChapaNetworkError {
+                print("Error occured: \(error.localizedDescription)")
+                print("Recovery ways: \(error.recoverySuggestion ?? "Couldn't propose a recovery method.")")
+            } catch (let error) {
+                print("Unidentified error occured: \(error.localizedDescription)")
             }
         }
     }
