@@ -1,8 +1,3 @@
-# Chapa4iOSXCFramework
-
-This is the XCFramework Project for [Chapa4iOS](https://github.com/yohannescodes/Chapa4iOS) (Unofficial iOS SDK of [Chapa](https://chapa.co)).
-
-
 
 ![chapalogo](https://github.com/yohanneskemer/Chapa4iOS/assets/99908888/b84c770e-5dfa-411b-b2a6-33a29fcb5af9)
 
@@ -78,13 +73,9 @@ You can customize the checkout page for your users by providing:
 - description
 
 ## Verify Payment
-To verify payment, simply call the verify method from Chapa instance.
+Verifying transactions is automated starting from Chapa4iOS v1.0.0.
 
+### Thank you for working with Chapa4iOS 🧡
 
-```swift
-chapa.verifyPayment(controller: self, txRef: transactionReference)
-```
-### Remark
-Successfully presenting the checkout page doesn’t necessarily mean your customer has finalized their payment. You need to verify the transaction by providing the transaction reference you generated before initializing Customer object.
-
+## Remark: The XCFramework project in this repository will be included in the Swift package's Souce folder soon.
 
