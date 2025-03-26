@@ -46,13 +46,13 @@ let transactionReference = chapa.generateTransactionReference()
 
 
 ## Accept Payment
-Here we can initialize a transaction by providing customer information and requesting for a checkout URL to load for our users.
+Here we can initialize a transaction by providing customer information and requesting a checkout URL to load for our users.
 
 
 ```swift
 let customer = Customer(amount: "100", currency: .etb, email: nil, firstName: "Yohannes", lastName: "Haile", phoneNumber: "0922106876", txRef: transactionReference, callbackURL: nil, returnURL: nil, customization: nil)
 
-//Enter the instance of your View Controller when you call the following method so it can instantiate Web View for the Checkout page it retrieves from the response.
+//Enter the instance of your View Controller when you call the following method so it can instantiate a Web View for the Checkout page it retrieves from the response.
 chapa.acceptPayment(controller: self, customer: customer)
 ```  
 
